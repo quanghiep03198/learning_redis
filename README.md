@@ -16,7 +16,7 @@
 
 **1. Cài đặt**
 
-👉 Xem cách cài đặt tại [trang chủ](https://redis.io/docs/install/install-redis/) của **Redis**
+> Xem cách cài đặt tại [trang chủ](https://redis.io/docs/install/install-redis/) của **Redis**
 
 **2. Sử dụng**
 
@@ -24,4 +24,62 @@
 
 ```shell
 redis-cli
+```
+
+## Các lệnh phổ biến
+
+**1. Xóa 1 key nếu nó tồn tại**
+
+```shell
+DEL <key_name>
+```
+
+**2. Kiểm tra sự tồn tại của 1 key**
+
+```shell
+EXISTS <key_name>
+```
+
+**3. Đặt exprire time cho key sau "n" giây"**
+
+```shell
+EXPIRE <key_name> n
+```
+
+**4. Xóa expire time của key**
+
+```shell
+PERSIST <key_name>
+```
+
+**5. Lấy tất cả các keys đang tồn tại**
+
+```shell
+KEYS <pattern>
+```
+
+_Example_ : `KEYS *token*`
+
+**6. Check thời gian sống của 1 key**
+
+```shell
+TTL <key_name>
+```
+
+**7. Đổi tên key**
+
+```shell
+RENAME <curent_key> <new_key>
+```
+
+_Hoặc rename key nếu <new_key> chưa tồn tại_
+
+```shell
+RENAMENX <curent_key> <new_key>
+```
+
+**8. Lấy kiểu dữ liệu được lưu trữ bởi key**
+
+```shell
+TYPE <key_name>
 ```
