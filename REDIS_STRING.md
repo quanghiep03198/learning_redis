@@ -1,12 +1,16 @@
 ![logo](./images/redis-logo.png)
 
-# Part 1 - Redis String 🔥
+# Part 1 - Redis String
 
-### 👉 Ứng dụng sủ dụng
+### 👉 Redis string là gì
+
+> "**Redis string** là 1 các cặp key-value trong đó value có giá trị string trong redis"
+
+### 👉 Ứng dụng sử dụng
 
 - Đối tượng bộ đệm
 - Số lượng thông thường
-- Khóa phân tán,
+- Khóa phân tán
 - Thông tin phiên được chia sẻ
 - ... etc.
 
@@ -38,28 +42,37 @@ SETEX <key_name> <value> <expire_time>
 _Hoặc_
 
 ```shell
-SET <key_name> <value> NX PX|EX <expire_time>
+SET <key_name> <value> <NX|XX> <PX|EX> <expire_time>
 ```
 
 _Trong đó:_
 
+- "XX" (Exist) - là thiết lập cho khóa đã tồn tại
 - "NX" (Not Exist) - là thiết lập khóa không tồn tại
-- "PX" (milliseconds) - nếu sử dụng "PX expire time sẽ được tính theo milli giây
-- "EX" (seconds) - nếu sử dụng "EX expire time sẽ được tính theo giây
+- "PX" (milliseconds) - nếu sử dụng "PX", expire time sẽ được tính theo milli giây
+- "EX" (seconds) - nếu sử dụng "EX", expire time sẽ được tính theo giây
 
-**4. Check thời gian sống của 1 key**
+_Example:_
+
+- Set value và expire time cho 1 key chưa tồn tại với thời gian sống là 60s
 
 ```shell
-TTL <key_name>
+SET some_key xxx NX EX 60
 ```
 
-**5. Get value bằng tên key**
+- Set value và expire time cho key đang tồn tại với thời gian sống là 60000ms (60s)
+
+```shell
+SET some_key yyy XX PX 60000
+```
+
+**4. Get value bằng tên key**
 
 ```shell
 GET <key_name>
 ```
 
-**6. Kiểm tra kiểu mã hóa**
+**5. Kiểm tra kiểu mã hóa**
 
 ```shell
 OBJECT ENCODING <key_name>
@@ -67,65 +80,49 @@ OBJECT ENCODING <key_name>
 
 _Trả về "embedstr" hoặc "raw"_
 
-**7. Kiểm tra key có tổn tại hay không**
-
-```shell
-EXISTS <key_name>
-```
-
-_Nếu tồn tại sẽ trả về 1, ngược lại nếu không tồn tại sẽ trả về 0_
-
-**8. Lấy tất cả các keys đang tồn tại**
-
-```shell
-KEYS <regex_pattern>
-```
-
-_Example_ : `KEYS *token*`
-
-**9. Set đồng thời nhiều cặp key-value cùng lúc**
+**6. Set đồng thời nhiều cặp key-value cùng lúc**
 
 ```shell
 MSET <key_1> <value_1> <key_2> <value_2> ...
 ```
 
-**10. Get đồng thời nhiều values cùng lúc**
+**7. Get đồng thời nhiều values cùng lúc**
 
 ```shell
 MGET <key_1> <key_2> ...
 ```
 
-**11. Lấy độ dài của giá trị**
+**8. Lấy độ dài của giá trị**
 
 ```shell
 STRLEN <key_name>
 ```
 
-**12. Tăng giá trị lưu trữ của key (số nguyên) với "n" đơn vị**
+**9. Tăng giá trị lưu trữ của key (số nguyên) với "n" đơn vị**
 
 ```shell
 INCR <key_name>
 ```
 
-**13. Tăng giá trị lưu trữ của key (số nguyên) lên "n" đơn vị**
+**10. Tăng giá trị lưu trữ của key (số nguyên) lên "n" đơn vị**
 
 ```shell
 INCRBY <key_name> n
 ```
 
-**14. Giảm giá trị lưu trữ của key (số nguyên) với 1 đơn vị**
+**11. Giảm giá trị lưu trữ của key (số nguyên) với 1 đơn vị**
 
 ```shell
 DECR <key_name>
 ```
 
-**15. Giảm giá trị lưu trữ của key (số nguyên) với "n" đơn vị**
+**12. Giảm giá trị lưu trữ của key (số nguyên) với "n" đơn vị**
 
 ```shell
 DECRBY <key_name> n
 ```
 
-**16. Cắt lấy giá trị của key theo index**
+**13. Cắt lấy giá trị của key theo index**
 
 ```shell
 GETRANGE <key_name> <start_index> <end_index>
@@ -135,9 +132,3 @@ _Trong đó:_
 
 - (integer) start_index: vị trí bắt đầu lấy
 - (integer) end_index: vị trí kết thúc
-
-**17. Đổi tên key**
-
-```shell
-RENAMENX <curent_key> <new_key>
-```
