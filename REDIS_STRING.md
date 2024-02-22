@@ -2,11 +2,11 @@
 
 # Part 1 - Redis String
 
-### 👉 Redis string là gì
+### Redis string là gì
 
 > "**Redis string** là 1 các cặp key-value trong đó value có giá trị string trong redis"
 
-### 👉 Ứng dụng sử dụng
+### Ứng dụng sử dụng
 
 - Đối tượng bộ đệm
 - Số lượng thông thường
@@ -14,12 +14,12 @@
 - Thông tin phiên được chia sẻ
 - ... etc.
 
-### 👉 Các loại mã hóa
+### Các loại mã hóa
 
 - Embed string (embstr) có dung lượng **<= 44MB**
 - Raw (raw) có dung lượng **> 44MB**
 
-### 👉 Các lệnh phổ biến
+### Các lệnh phổ biến
 
 **1. Set 1 giá trị cho key**
 
