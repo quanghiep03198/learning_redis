@@ -2,6 +2,8 @@
 
 ## Redis - Giới thiệu
 
+![logo](./images/redis-explained.jpg)
+
 **Redis** (viết tắt của **Remote Dictionary Server**) là một hệ thống lưu trữ dữ liệu trong bộ nhớ hoạt động dưới dạng cơ sở dữ liệu **key-value**.
 
 **Redis** không chỉ đơn thuần là một cơ sở dữ liệu **key-value**, mà còn hỗ trợ các cấu trúc dữ liệu phức tạp như **danh sách**, **tập hợp**, **tập hợp được sắp xếp** và **bảng băm**.

@@ -2,9 +2,9 @@
 
 # Part 4 - Redis Set
 
-### Redis set là gì
+### Redis Set là gì
 
-> **Redis set** là 1 tập hợp các cặp key và value, trong đó các giá trị là duy nhất, không trùng lặp và không có thứ tự.
+> **Redis Set** là 1 tập hợp các value, trong đó các giá trị là duy nhất, không trùng lặp và **KHÔNG CÓ** thứ tự.
 
 ### Ứng dụng sử dụng
 
@@ -16,13 +16,13 @@
 1. Thêm 1 tập hợp (tạo mới nếu tập hợp không tồn tại)
 
 ```shell
-SADD <set_name> <value_1> <value_2> ... <value_n>
+SADD <set_name> <member_1> <member_2> ... <member_n>
 ```
 
 2. Xóa 1 phần tử khỏi tập hợp
 
 ```shell
-SREM <set_name> <value_1> <value_2> ... <value_n>
+SREM <set_name> <member_1> <member_2> ... <member_n>
 ```
 
 3. Lấy ra các phần tử có trong tập hợp
