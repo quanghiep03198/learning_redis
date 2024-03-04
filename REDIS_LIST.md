@@ -27,7 +27,7 @@ _Theo chiều từ phải qua_
 RPUSH <list_name> <elm_1> <elm_2> ...
 ```
 
-**2. Xóa phần tử trong list **
+**2. Xóa phần tử trong list**
 
 _Theo chiều từ trái qua_
 
@@ -66,4 +66,4 @@ _Chèn vào sau 1 phần tử có giá trị = x_
 LINSERT <list_name> AFTER x
 ```
 
-### Cơ chế block trong Redis list
+### Cơ chế block trong Redis List
